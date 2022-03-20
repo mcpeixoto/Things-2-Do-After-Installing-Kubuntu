@@ -18,6 +18,14 @@ apt-get install spotify-client
 # Stop skype from mutting apps
 sed -i 's/load-module module-role-cork/#load-module module-role-cork/' /etc/pulse/default.pa
 
+## install flux
+add-apt-repository ppa:nathan-renniewaldock/flux
+
+# We need to replace stupid stuff
+sed -i 's/focal/bionic/' /etc/apt/sources.list.d/nathan-renniewaldock-ubuntu-flux-focal.list
+apt-get update
+apt-get install fluxgui
+
 
 
 ## Make grub remember last choice
