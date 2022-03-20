@@ -35,3 +35,8 @@ sed -i 's/GRUB_SAVEDEFAULT/#GRUB_SAVEDEFAULT/' /etc/pulse/default.pa
 
 # Add new lines on top of the file
 sed -i '1s/^/GRUB_DEFAULT=saved\nGRUB_SAVEDEFAULT=true\n /' file
+
+
+
+# Autoinstall drivers
+ubuntu-drivers autoinstall
