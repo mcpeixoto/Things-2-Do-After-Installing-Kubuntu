@@ -40,7 +40,7 @@ sed -i 's/GRUB_SAVEDEFAULT/#GRUB_SAVEDEFAULT/' /etc/default/grub
 # Add new lines on top of the file
 sed -i '1s/^/GRUB_DEFAULT=saved\nGRUB_SAVEDEFAULT=true\n /' /etc/default/grub
 
-
+update-grub
 
 # Autoinstall drivers
 ubuntu-drivers autoinstall
