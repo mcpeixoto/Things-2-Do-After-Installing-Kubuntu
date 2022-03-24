@@ -1,3 +1,6 @@
+# Update system
+apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y 
+
 
 # Install packages
 apt-get install yakuake python3-pip libclang-dev libudev-dev snap git rustc cargo make libusb-1.0-0-dev libdbus-1-dev llvm libclang-dev gnome-keyring gnome-disk-utility python-is-python3 htop python3-tk python3-pil python3-pil.imagetk nvtop cmake protobuf-compiler curl -y
@@ -31,11 +34,11 @@ apt-get install fluxgui
 
 ## Make grub remember last choice
 # Make sure these lines are ignored
-sed -i 's/GRUB_DEFAULT/#GRUB_DEFAULT/' /etc/pulse/default.pa
-sed -i 's/GRUB_SAVEDEFAULT/#GRUB_SAVEDEFAULT/' /etc/pulse/default.pa
+sed -i 's/GRUB_DEFAULT/#GRUB_DEFAULT/' /etc/default/grub
+sed -i 's/GRUB_SAVEDEFAULT/#GRUB_SAVEDEFAULT/' /etc/default/grub
 
 # Add new lines on top of the file
-sed -i '1s/^/GRUB_DEFAULT=saved\nGRUB_SAVEDEFAULT=true\n /' file
+sed -i '1s/^/GRUB_DEFAULT=saved\nGRUB_SAVEDEFAULT=true\n /' /etc/default/grub
 
 
 
