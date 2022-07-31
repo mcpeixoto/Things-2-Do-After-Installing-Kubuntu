@@ -3,7 +3,7 @@ apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 
 # Install packages
-apt-get install yakuake python3-pip libclang-dev libudev-dev snap git rustc cargo make libusb-1.0-0-dev libdbus-1-dev llvm libclang-dev gnome-keyring gnome-disk-utility python-is-python3 htop python3-tk python3-pil python3-pil.imagetk nvtop cmake protobuf-compiler curl python-dev -y
+apt-get install yakuake python3-pip libclang-dev libudev-dev snap git rustc cargo make libusb-1.0-0-dev libdbus-1-dev llvm libclang-dev gnome-keyring gnome-disk-utility python-is-python3 htop python3-tk python3-pil python3-pil.imagetk nvtop cmake protobuf-compiler curl python-dev kate dolphin aptitude -y
 
 snap install snap-store skype fluxgui telegram-desktop discord skype
 
