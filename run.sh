@@ -6,6 +6,7 @@ apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install wget yakuake python3-pip libclang-dev libudev-dev snap git rustc cargo make libusb-1.0-0-dev libdbus-1-dev llvm libclang-dev gnome-keyring gnome-disk-utility python-is-python3 htop python3-tk python3-pil python3-pil.imagetk nvtop cmake protobuf-compiler curl kate dolphin aptitude -y
 
 snap install fluxgui telegram-desktop skype
+snap install code --classic
 
 pip3 install torch pytorch-lightning numpy pandas tables keras tensorflow jupyter sklearn torchvision matplotlib ipython-autotime
 
