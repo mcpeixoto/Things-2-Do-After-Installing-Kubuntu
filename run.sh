@@ -5,15 +5,14 @@ apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 # Install packages
 apt-get install wget yakuake python3-pip libclang-dev libudev-dev snap git rustc cargo make libusb-1.0-0-dev libdbus-1-dev llvm libclang-dev gnome-keyring gnome-disk-utility python-is-python3 htop python3-tk python3-pil python3-pil.imagetk nvtop cmake protobuf-compiler curl kate dolphin aptitude -y
 
-snap install fluxgui telegram-desktop skype
+snap install --edge fluxgui
 snap install code --classic
+snap install telegram-desktop skype
 
-pip3 install torch pytorch-lightning numpy pandas tables keras tensorflow jupyter sklearn torchvision matplotlib ipython-autotime
+python -m pip install --upgrade pip
+# pip3 install torch pytorch-lightning numpy pandas tables keras tensorflow jupyter sklearn torchvision matplotlib ipython-autotime
 
 # Discord
-cd /tmp
-wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-dpkg -i discord.deb
 
 
 # INSTALL CHROME
@@ -51,3 +50,14 @@ update-grub
 
 # Autoinstall drivers
 ubuntu-drivers autoinstall
+
+# Install asusctl
+apt install libclang-dev libudev-dev
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+cd /tmp
+git clone https://gitlab.com/asus-linux/asusctl
+cd asusctl
+make
+sudo make install
+
