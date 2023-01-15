@@ -13,7 +13,9 @@ python -m pip install --upgrade pip
 # pip3 install torch pytorch-lightning numpy pandas tables keras tensorflow jupyter sklearn torchvision matplotlib ipython-autotime
 
 # Discord
-
+sudo apt install gdebi-core wget
+wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo gdebi ~/discord.deb  -y
 
 # INSTALL CHROME
 cd /tmp
@@ -52,12 +54,27 @@ update-grub
 ubuntu-drivers autoinstall
 
 # Install asusctl
-apt install libclang-dev libudev-dev
+# URL: https://gitlab.com/asus-linux/asusctl
+sudo apt install libgtk-3-dev libpango1.0-dev libgdk-pixbuf-2.0-dev libglib2.0-dev cmake libclang-dev libudev-dev libayatana-appindicator3-1 -y
+sudo apt remove rustc -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env"
-cd /tmp
 git clone https://gitlab.com/asus-linux/asusctl
 cd asusctl
+source "$HOME/.cargo/env"
 make
 sudo make install
+systemctl daemon-reload && systemctl restart asusd
 
+
+# Install vscode
+sudo apt-get install wget gpg
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+
+sudo apt install apt-transport-https
+sudo apt update
+sudo apt install code
+
+# Autoremove / Cleanup
