@@ -77,4 +77,11 @@ sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code
 
+# Install timeshift
+sudo add-apt-repository -y ppa:teejee2008/timeshift
+sudo apt-get update
+sudo apt-get install timeshift
+
+
 # Autoremove / Cleanup
+sudo apt autoremove -y
