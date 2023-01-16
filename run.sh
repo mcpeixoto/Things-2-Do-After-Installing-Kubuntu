@@ -30,16 +30,6 @@ apt-get update && apt-get install spotify-client
 # Stop skype from mutting apps
 sed -i 's/load-module module-role-cork/#load-module module-role-cork/' /etc/pulse/default.pa
 
-## install flux
-add-apt-repository ppa:nathan-renniewaldock/flux
-
-# We need to replace stupid stuff
-sed -i 's/focal/bionic/' /etc/apt/sources.list.d/nathan-renniewaldock-ubuntu-flux-focal.list
-apt-get update
-apt-get install fluxgui
-
-
-
 ## Make grub remember last choice
 # Make sure these lines are ignored
 sed -i 's/GRUB_DEFAULT/#GRUB_DEFAULT/' /etc/default/grub
@@ -83,5 +73,29 @@ sudo apt-get update
 sudo apt-get install timeshift
 
 
+# Noisetorch
+wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
+tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
+
+# write to ~/.profile
+"""
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+"""
+echo "if [ -d "$HOME/.local/bin" ] ; then" >> ~/.profile
+echo "    PATH="$HOME/.local/bin:$PATH"" >> ~/.profile
+echo "fi" >> ~/.profile
+
+
+
+
 # Autoremove / Cleanup
 sudo apt autoremove -y
+
+
+
+### WRITTING TO BASHRC
+# Alias
+echo "alias ll='ls -l'" >> ~/.bashrc
+echo "alias cenv='python -m venv .env'" >> ~/.bashrc
