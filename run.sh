@@ -98,7 +98,7 @@ sudo apt autoremove -y
 ### WRITTING TO BASHRC
 # Alias
 echo "alias ll='ls -l'" >> ~/.bashrc
-echo "alias cenv='python -m venv .env'" >> ~/.bashrc
+echo "alias cenv='python -m venv .env' && source .env/bin/activate && touch .gitignore && echo '.env/' >> .gitignore && echo '.gitignore' >> .gitignore" >> ~/.bashrc
 echo "alias berry='ssh  mcpeixoto@193.137.11.249 -p 51000'" >> ~/.bashrc
 
 
