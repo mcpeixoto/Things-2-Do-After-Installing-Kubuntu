@@ -118,3 +118,11 @@ sudo apt update
 
 sudo apt install brave-browser -y
 
+
+# Add
+"""GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+GRUB_DISABLE_OS_PROBER=false
+"""
+# To grub
+sudo sed -i '1s/^/GRUB_DEFAULT=saved\nGRUB_SAVEDEFAULT=true\nGRUB_DISABLE_OS_PROBER=false\n /' /etc/default/grub
